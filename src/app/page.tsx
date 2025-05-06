@@ -1,103 +1,77 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { HomepageForm } from "./components/forms/homepage-form";
+import { RightPart } from "./components/layout/right-part/right-part";
+import { SmsForm } from "./components/forms/sms-form";
 
 export default function Home() {
+  const [step, setStep] = useState<number>(0);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <section className="flex flex-col lg:flex-row flex-1 relative bg-gray-100 lg:bg-white">
+      <div className="p-8 hidden justify-center items-center lg:flex lg:w-1/2 bg-gray-100 xl:w-2/5">
+        <RightPart />
+      </div>
+      {step === 0 && (
+        <div className="w-full lg:w-1/2 lg:pb-30 xl:w-3/5 lg:flex lg:flex-col lg:justify-center lg:pt-40">
+          <div className="container ">
+            <div className="lg:border-b lg:border-red max-w-[716px] mx-auto">
+              <h1 className="text-center text-4xl font-bold text-red lg:font-[rubik] lg:text-3xl">
+                מימון לרכב בקליק
+              </h1>
+              <h2 className="text-center text-4xl lg:font-[rubik] lg:text-2xl lg:text-red">
+                הלוואה לרכישת רכב יד שנייה בין אנשים פרטיים
+              </h2>
+            </div>
+          </div>
+          <div className="bg-[url('/images/mobile-home-bg.png')] bg-cover bg-center pt-4 pb-9 relative z-10 rounded-b-2xl lg:bg-gradient-to-r from-[#e10514] to-[#bc3535] lg:py-6 lg:absolute lg:top-0 lg:left-0 lg:w-full lg:rounded-none ">
+            <div className="container">
+              <img
+                className="mx-auto mb-8 w-[210px] lg:hidden"
+                src="/images/logo-white.svg"
+                alt=""
+              />
+              <ul className="flex flex-col gap-3 items-center lg:flex-row lg:justify-center lg:items-center">
+                <li className="flex gap-5 items-center text-lg text-white font-bold">
+                  <img src="/images/icons/check.svg" />
+                  מימון לרכב בתנאים המשתלמים ביותר
+                </li>
+                <li className="flex gap-5 items-center text-lg text-white font-bold">
+                  <img src="/images/icons/check.svg" />
+                  תהליך מאובטח וזריז
+                </li>
+                <li className="flex gap-5 items-baseline text-lg text-white font-bold">
+                  <img src="/images/icons/check.svg" />
+                  מימון לרכבים יד 2 בין אדם פרטי לאדם פרטי
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-pink -mt-4 pt-9 pb-5 relative z-0 lg:hidden">
+            <div className="container">
+              <h3 className="text-center text-2xl font-bold text-red">
+                תן לנו לאתר עבורך את המימון המשתלם ביותר, מבלי לצאת מהבית
+              </h3>
+            </div>
+          </div>
+          <HomepageForm />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      )}
+      {step === 1 && (
+        <div className="w-full lg:w-1/2 lg:pt-20 lg:pb-30 xl:w-3/5 lg:flex lg:flex-col lg:justify-center">
+          <div className="container ">
+            <div className="lg:border-b lg:border-red max-w-[716px] mx-auto lg:hidden">
+              <h2 className="text-center text-4xl font-bold text-red lg:font-[rubik] lg:text-3xl">
+                מימון לרכב בקליק
+              </h2>
+              <h3 className="text-center text-4xl lg:font-[rubik] lg:text-2xl lg:text-red">
+                הלוואה לרכישת רכב יד שנייה בין אנשים פרטיים
+              </h3>
+            </div>
+          </div>
+          <SmsForm />
+        </div>
+      )}
+    </section>
   );
 }

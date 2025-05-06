@@ -1,0 +1,22 @@
+.slider .swiper-horizontal > .swiper-pagination-bullets,
+.slider .swiper-pagination-bullets.swiper-pagination-horizontal {
+  position: absolute;
+  /* top: -40px; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+}
+
+.slider .swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+}
+
+.slider .swiper {
+  padding-top: 40px;
+}

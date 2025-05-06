@@ -1,0 +1,8 @@
+.MuiInputBase-input::placeholder {
+  text-align: right;
+  opacity: 1;
+}
+
+.MuiInputBase-input {
+  text-align: right;
+}
